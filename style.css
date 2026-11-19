@@ -15,21 +15,35 @@ body{
     align-items: center;
     justify-content: center;
 }
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes borderAnimate{
+    from{
+       --rotate: 0deg;
+    }
+    to{
+        --rotate: 360deg;
+    }
+}
 .box{
-    
     width: 250px;
     padding-inline: 10px;
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-shadow: 0 0 50px rgb(255, 0, 123);
+    border-radius: 10px;
+    background:
+    linear-gradient(black) padding-box,
+    conic-gradient(from var(--rotate),black,rgb(255, 0, 123),black) border-box;
+    border: 5px solid rgb(255,255,255,0);
+    animation: borderAnimate 10s;
+    animation-iteration-count: infinite;
 }
 .box img{
     width: 100%;
-}
-.box:hover{
-    border-radius: 10px;
-    border: 2px solid red;
-     box-shadow: 0 0 50px rgb(255, 54, 87);
-     scale: 0.95;
 }
